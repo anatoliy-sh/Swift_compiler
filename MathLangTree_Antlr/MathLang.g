@@ -3,7 +3,7 @@ grammar MathLang;
 options {
   language=CSharp3;
   output=AST;
-  //backtrack=true;
+  backtrack=true;
 }
 
 
@@ -13,19 +13,23 @@ tokens {
   INPUT   = 'input'   ;
   BLOCK               ;
   PROGRAM = 'program' ;
-  BEGIN = 'begin'     ;
-  END = 'end'         ;
+  BEGIN = '{'     ;
+  END = '}'         ;
   IF = 'if'			  ;
-  THEN = 'then'       ;
   ELSE = 'else'       ;
   WHILE = 'while'     ;
   DO = 'do'           ;
   FOR = 'for'         ;
-  TO = 'to'           ;
-  DOWNTO = 'downto'   ;
-  AND = 'and'         ;
-  OR = 'or'           ;
-  NOT = 'not'         ; 
+  AND = '&&'         ;
+  OR = '||'           ;
+  NOT = '!'         ; 
+  LET = 'let'         ;
+  INT= 'Int';
+  STRING= 'String';
+  DOUBLE= 'Double';
+  FLOAT= 'Float';
+  VAR='var';
+
 }
 
 
@@ -54,6 +58,8 @@ ML_COMMENT:
 
 NUMBER: ('0'..'9')+ ('.' ('0'..'9')+)?
 ;
+STRINGVAL: ('"')  ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )* ('"');
+
 IDENT:  ( 'a'..'z' | 'A'..'Z' | '_' )
         ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )*
 ;
@@ -61,19 +67,36 @@ ADD:    '+'     ;
 SUB:    '-'     ;
 MUL:    '*'     ;
 DIV:    '/'     ;
-ASSIGN: ':='    ;
+ASSIGN: '='    ;
+INCR: '++';
+DECR: '--';
+ADDAS:    '+='     ;
+SUBAS:    '-='     ;
+MULAS:    '*='     ;
+DIVAS:    '/='     ;
+
 
 GE: '>=';
 LE: '<=';
 EQ: '=';
-NE: '<>';
+NE: '!=';
 GT: '>';
 LT: '<';
 
+
+
+type: INT | STRING | DOUBLE | FLOAT;
+
+value: NUMBER |  STRINGVAL ;
+
+crement: INCR | DECR;
+
+allassign: ASSIGN | ADDAS | SUBAS | MULAS | DIVAS;
+
 group:
   '('! term ')'!
-| NUMBER
-| IDENT
+| (crement^)? IDENT (crement^)?
+| value
 ;
 
 not:
@@ -96,19 +119,22 @@ or_logic: and_logic (OR^ and_logic)* ;
 
 expr:
   BEGIN exprList END -> ^(BLOCK exprList?)
-| IDENT ASSIGN^ term
-| IF^ term THEN! expr (ELSE! expr)?
+| IDENT allassign^ term
+| IF^ term expr /*(ELSE! IF! term expr)*/ (ELSE! expr)?
 | WHILE^ term DO! expr
-| FOR^ IDENT ASSIGN! term (TO|DOWNTO) term DO! expr
+| //FOR^ (VAR! IDENT ASSIGN! term ';'!) compare ';'! (crement^ IDENT ';'!) expr
+| LET^ IDENT (':'! type)? (ASSIGN! term)?
+| VAR^ IDENT (':'! type)? (ASSIGN!term)?
+
 ;
 
 exprList: expr ((';'!)+ exprList | (';'!)*)
 ;
 
-program: BEGIN! exprList END!
+program:  exprList 
 ;
 
 
 public execute:
-  PROGRAM! IDENT^ program
+    program
 ;
