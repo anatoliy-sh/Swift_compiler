@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{043EF514-440A-4527-BF6A-0681EB349FA9}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MathLang</RootNamespace>
+    <AssemblyName>MathLang</AssemblyName>
+    <NoWarn>3021</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.1.3.42154, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>antlr\.net\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AstNodePrinter.cs" />
+    <Compile Include="IntepreterException.cs" />
+    <Compile Include="MathAstNode.cs" />
+    <Compile Include="MathLangIntepreter.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Input.txt" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <AntlrGrammarFile Include="MathLang.g" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <AntlrLexerFile>@(AntlrGrammarFile->'%(RelativeDir)%(Filename)Lexer.cs')</AntlrLexerFile>
+    <AntlrParserFile>@(AntlrGrammarFile->'%(RelativeDir)%(Filename)Parser.cs')</AntlrParserFile>
+    <AntlrTokensFile>@(AntlrGrammarFile->'%(RelativeDir)%(Filename).tokens')</AntlrTokensFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="$(AntlrLexerFile)">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>@(AntlrGrammarFile)</DependentUpon>
+    </Compile>
+    <Compile Include="$(AntlrParserFile)">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>@(AntlrGrammarFile)</DependentUpon>
+    </Compile>
+    <Compile Include="ParserBaseException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(AntlrTokensFile)">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>@(AntlrGrammarFile)</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <JavaHome>C:\Program_Files\Java\jdk7</JavaHome>
+  </PropertyGroup>
+
+  <Target Name="GenerateAntlrCode" Inputs="@(AntlrGrammarFile)" Outputs="$(AntlrLexerFile);$(AntlrParserFile)">
+    <Exec Command="&quot;$(JavaHome)\bin\java&quot; -classpath antlr\java\antlr-3.3-complete.jar org.antlr.Tool -message-format vs2005 @(AntlrGrammarFile)" />
+    <!--Exec Command="&quot;antlr\.net\antlr3.exe&quot; -message-format vs2005 @(AntlrGrammarFile)" /-->
+  </Target>
+  <Target Name="CleanAntlrCode">
+    <Delete Files="$(AntlrLexerFile);$(AntlrParserFile)" />
+  </Target>
+
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
+  <PropertyGroup>
+    <BuildDependsOn>GenerateAntlrCode;$(BuildDependsOn)</BuildDependsOn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RebuildDependsOn>CleanAntlrCode;$(RebuildDependsOn)</RebuildDependsOn>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

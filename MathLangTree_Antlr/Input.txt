@@ -1,0 +1,22 @@
+program test
+begin
+	a:=3;
+	
+	
+	if not (a>4) and not(a>5 or a<3) then
+	begin
+		a:=(5+4)*2;
+		b:=a;
+	end
+	else 
+	begin
+		a:=2;
+		a:=b;
+	end;
+	while a<3 do
+		a:=a+1;
+	for a:=2 downto 10 do
+	begin
+		a:=a+1;
+	end;
+end;
