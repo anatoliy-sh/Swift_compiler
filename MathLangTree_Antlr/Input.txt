@@ -1,22 +1,37 @@
-program test
-begin
-	a:=3;
+	/*if !(a>4) && !(a>5 || a<3) 
+	{
+		a=(5+4)*2;
+	}
+	else	
+	  if (a>4)
+		a=2
+		else		
+			a=3*/
+		
 	
 	
-	if not (a>4) and not(a>5 or a<3) then
-	begin
-		a:=(5+4)*2;
-		b:=a;
-	end
-	else 
-	begin
-		a:=2;
-		a:=b;
-	end;
-	while a<3 do
-		a:=a+1;
-	for a:=2 downto 10 do
-	begin
-		a:=a+1;
-	end;
-end;
+
+			
+	//d = ggg(3,ter)
+	f = ddd--;
+	/*a=3
+	print("fff");
+	a+=34+f;
+	for index in 1 ... 5
+	{
+	  g=4;
+	}
+	f*=3
+	a = ++a;
+	b = d--;
+	let h:Int = 45; 
+	let str = "str";
+	let str:String = "dee" +1;
+
+	for var i = 0; i<10; ++i;
+	{
+		g=g+3;
+	}
+	
+	while a<3 
+		a=a+1;*/

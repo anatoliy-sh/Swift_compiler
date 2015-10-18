@@ -18,7 +18,6 @@ tokens {
   IF = 'if'			  ;
   ELSE = 'else'       ;
   WHILE = 'while'     ;
-  DO = 'do'           ;
   FOR = 'for'         ;
   AND = '&&'         ;
   OR = '||'           ;
@@ -29,7 +28,9 @@ tokens {
   DOUBLE= 'Double';
   FLOAT= 'Float';
   VAR='var';
-
+  IN = 'in';
+  PARAMS ;
+  FUNC_CALL;
 }
 
 
@@ -89,15 +90,34 @@ type: INT | STRING | DOUBLE | FLOAT;
 
 value: NUMBER |  STRINGVAL ;
 
-crement: INCR | DECR;
+crement: INCR^ IDENT | IDENT INCR^ | DECR^ IDENT | IDENT ^DECR ;
 
 allassign: ASSIGN | ADDAS | SUBAS | MULAS | DIVAS;
 
-group:
-  '('! term ')'!
-| (crement^)? IDENT (crement^)?
-| value
+paramms:
+term (',' term)* -> ^(PARAMS term*)
 ;
+
+func_call:
+IDENT '(' paramms? ')' -> ^(FUNC_CALL IDENT paramms?)
+;
+
+group:
+groupInit | groupExpr
+;
+
+groupInit:
+  '('! term ')'!
+| IDENT 
+| value
+
+;
+
+groupExpr:
+	func_call
+  | crement
+;
+
 
 not:
   NOT^ group
@@ -114,21 +134,24 @@ compare:
 
 and_logic: compare (AND^ compare)* ;
 or_logic: and_logic (OR^ and_logic)* ;
-//not_logic: (NOT^)* or_logic ;
+
 
 
 expr:
   BEGIN exprList END -> ^(BLOCK exprList?)
 | IDENT allassign^ term
-| IF^ term expr /*(ELSE! IF! term expr)*/ (ELSE! expr)?
-| WHILE^ term DO! expr
-| //FOR^ (VAR! IDENT ASSIGN! term ';'!) compare ';'! (crement^ IDENT ';'!) expr
+| IF^ term expr (ELSE! expr)?
+| WHILE^ term  expr
+| FOR^ (VAR!? IDENT ASSIGN! term ';'!) compare ';'! ( groupExpr ';'!) expr
 | LET^ IDENT (':'! type)? (ASSIGN! term)?
 | VAR^ IDENT (':'! type)? (ASSIGN!term)?
+| FOR^ VAR!? IDENT IN! term '...'! term expr
+| PRINT '('! STRINGVAL ')'!
+| groupExpr
 
 ;
 
-exprList: expr ((';'!)+ exprList | (';'!)*)
+exprList: expr ((';'!)?  exprList | (';'!)*)
 ;
 
 program:  exprList 
