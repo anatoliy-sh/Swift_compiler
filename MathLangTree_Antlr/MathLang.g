@@ -66,7 +66,9 @@ IDENT:  ( 'a'..'z' | 'A'..'Z' | '_' )
         ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )*
 ;
 
-array: IDENT ('['! term ']'!)+ -> ^(ARRAY IDENT (term)*);
+array: IDENT ('['! add ']'!)+ -> ^(ARRAY IDENT (add)*);
+
+idar: IDENT| array;
 
 ADD:    '+'     ;
 SUB:    '-'     ;
@@ -94,7 +96,7 @@ type: INT | STRING | DOUBLE | FLOAT;
 
 value: NUMBER |  STRINGVAL ;
 
-crement: INCR^ (IDENT | array) | IDENT INCR^ | DECR^ IDENT | IDENT ^DECR ;
+crement: INCR^ idar | idar INCR^ | DECR^ idar | idar ^DECR ;
 
 allassign: ASSIGN | ADDAS | SUBAS | MULAS | DIVAS;
 
@@ -148,7 +150,7 @@ expr:
 | WHILE^ term  expr
 | FOR^ (VAR!? IDENT ASSIGN! term ';'!) compare ';'! ( groupExpr ';'!) expr
 | LET^ IDENT (':'! type)? (ASSIGN! term)?
-| VAR^ IDENT (':'! type)? (ASSIGN!term)?
+| VAR^ idar (':'! type)? (ASSIGN!term)?
 | FOR^ VAR!? IDENT IN! term '...'! term expr
 | PRINT '('! STRINGVAL ')'!
 | groupExpr
