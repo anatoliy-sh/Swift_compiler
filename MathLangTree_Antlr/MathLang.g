@@ -22,8 +22,10 @@ tokens {
   AND = '&&'         ;
   OR = '||'           ;
   NOT = '!'         ; 
+  FUNC_PARAM;
   LET = 'let'         ;
   INT= 'Int';
+  REPEATE = 'repeate';
   STRING= 'String';
   DOUBLE= 'Double';
   FLOAT= 'Float';
@@ -32,6 +34,9 @@ tokens {
   PARAMS ;
   FUNC_CALL;
   ARRAY;
+  PROGRAM;
+  FUNC = 'func';
+  RETURN = 'return';
 }
 
 
@@ -62,13 +67,15 @@ NUMBER: ('0'..'9')+ ('.' ('0'..'9')+)?
 ;
 STRINGVAL: ('"')  ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )* ('"');
 
+BOOLVALUE: 'true' | 'false';
+
 IDENT:  ( 'a'..'z' | 'A'..'Z' | '_' )
         ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )*
 ;
 
-array: IDENT ('['! add ']'!)+ -> ^(ARRAY IDENT (add)*);
+array: IDENT ('[' add ']')+ -> ^(ARRAY IDENT (add)*);
 
-idar: IDENT| array;
+idar: array | IDENT;
 
 ADD:    '+'     ;
 SUB:    '-'     ;
@@ -85,7 +92,7 @@ DIVAS:    '/='     ;
 
 GE: '>=';
 LE: '<=';
-EQ: '=';
+EQ: '==';
 NE: '!=';
 GT: '>';
 LT: '<';
@@ -94,14 +101,20 @@ LT: '<';
 
 type: INT | STRING | DOUBLE | FLOAT;
 
-value: NUMBER |  STRINGVAL ;
+value: NUMBER |  STRINGVAL | BOOLVALUE;
+
+returnValue: value | term | IDENT;
 
 crement: INCR^ idar | idar INCR^ | DECR^ idar | idar ^DECR ;
 
 allassign: ASSIGN | ADDAS | SUBAS | MULAS | DIVAS;
 
 paramms:
-term (',' term)* -> ^(PARAMS term*)
+returnValue (',' returnValue)* -> ^(PARAMS returnValue*)
+;
+
+func_params:
+IDENT ':' type (',' IDENT ':' type)* -> ^(FUNC_PARAM (IDENT type)* )
 ;
 
 func_call:
@@ -154,10 +167,13 @@ expr:
 | FOR^ VAR!? IDENT IN! term '...'! term expr
 | PRINT '('! STRINGVAL ')'!
 | groupExpr
+| REPEATE expr WHILE term -> ^(REPEATE term expr)
+| FUNC^ IDENT '('! func_params? ')'! ('->'! type)? expr
+| RETURN^ returnValue
 
 ;
 
-exprList: expr ((';'!)?  exprList | (';'!)*)
+exprList: (expr ((';'!)?  exprList | (';'!)*))?
 ;
 
 program:  exprList 

@@ -8,11 +8,17 @@
 		else		
 			a=3*/
 		
-	
-	
+	func fid(misha: String) -> Int{
 
+	return "akkreditacia"
+	}
+	
+	while g<3
+	{
+	  
+	}
 			
-	d = ggg(3,ter)
+	d = ggg(3,"tt")
 	d[44]++
 	a=3
 	print("fff");
@@ -35,3 +41,8 @@
 	
 	while a<3 
 		a=a+1;
+	repeate 
+	  g++
+	while r<3
+	
+
