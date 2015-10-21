@@ -31,6 +31,7 @@ tokens {
   IN = 'in';
   PARAMS ;
   FUNC_CALL;
+  ARRAY;
 }
 
 
@@ -64,6 +65,9 @@ STRINGVAL: ('"')  ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )* ('"');
 IDENT:  ( 'a'..'z' | 'A'..'Z' | '_' )
         ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )*
 ;
+
+array: IDENT ('['! term ']'!)+ -> ^(ARRAY IDENT (term)*);
+
 ADD:    '+'     ;
 SUB:    '-'     ;
 MUL:    '*'     ;
@@ -90,7 +94,7 @@ type: INT | STRING | DOUBLE | FLOAT;
 
 value: NUMBER |  STRINGVAL ;
 
-crement: INCR^ IDENT | IDENT INCR^ | DECR^ IDENT | IDENT ^DECR ;
+crement: INCR^ (IDENT | array) | IDENT INCR^ | DECR^ IDENT | IDENT ^DECR ;
 
 allassign: ASSIGN | ADDAS | SUBAS | MULAS | DIVAS;
 
@@ -110,7 +114,7 @@ groupInit:
   '('! term ')'!
 | IDENT 
 | value
-
+| array
 ;
 
 groupExpr:
