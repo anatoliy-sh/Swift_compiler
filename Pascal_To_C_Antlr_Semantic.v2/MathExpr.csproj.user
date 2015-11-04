@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+  </PropertyGroup>
+  <PropertyGroup>
+    <JavaHome>C:\Program Files\Java\jre1.8.0_60</JavaHome>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
+    <StartArguments>..\..\Input.txt</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
+    <StartArguments>..\..\test\1.txt</StartArguments>
+  </PropertyGroup>
+</Project>

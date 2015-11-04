@@ -1,0 +1,5 @@
+var h:Int = 45,h1:Int = 45,h2:Int = 45; 
+
+var h3:Int;
+
+
