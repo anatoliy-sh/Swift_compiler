@@ -102,11 +102,11 @@ namespace MathExpr
             {
                 case "Int":
                     return DataType.Int;
-                case "double":
+                case "Double":
                     return DataType.Double;
-                case "boolean":
+                case "Boolean":
                     return DataType.Bool;
-                case "void":
+                case "Void":
                 case "":
                     return DataType.Void;
                 default:
@@ -121,11 +121,11 @@ namespace MathExpr
                 case DataType.Int:
                     return "Int";
                 case DataType.Double:
-                    return "double";
+                    return "Double";
                 case DataType.Bool:
-                    return "bool";
+                    return "Boolean";
                 case DataType.Void:
-                    return "void";
+                    return "Void";
                 default:
                     return "unknown";
             }
@@ -163,7 +163,7 @@ namespace MathExpr
                         CheckBlock(node, context);
                         return DataType.Void;
                     }
-
+                case MathExprLexer.LET:
                 case MathExprLexer.VAR:
                     {
                         List<AstNode> nodes = new List<AstNode>();
@@ -177,50 +177,39 @@ namespace MathExpr
                             Ident ident = context.InThisContext(node.GetChild(i).Text);
                             if (ident != null)
                                 throw new ApplicationException(string.Format("Identifier {0} already exists", tempi.Text));
-                            AstNode var = new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.VARS, "VARS"));
+                            String typeText = node.Type == MathExprLexer.VAR ? "VARS" : "LETS";
+                            AstNode var = new AstNode(new Antlr.Runtime.CommonToken(node.Type, typeText));
                             var.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.IDENT, tempi.Text)));
-
                             nodes.Add(var);
+                            
                             for (int j = 0; j < node.GetChild(i).ChildCount; j++)
                             {
                                 AstNode tempj = (AstNode)node.GetChild(i).GetChild(j);
-                                if (tempj.Token.Type == MathExprLexer.TYPE)
+                                if (tempj.Token.Type == MathExprLexer.TYPE && tempj.ChildCount >0)
                                 {
                                     dataType = strToDataType(tempj.GetChild(0).Text);
                                     var.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.TYPE, dataTypeToStr(dataType))));
+                                    
                                 }
                                 if (tempj.Token.Type == MathExprLexer.ASSIGN)
                                 {
-                                    tempj.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.IDENT, tempi.Text)));
-                                    nodes.Add(tempj);
+                                    AstNode tempAssign = new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.ASSIGN, "="));                          
+                                    tempAssign.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.IDENT, tempi.Text)));
+                                    tempAssign.AddChild(tempj.GetChild(0));
+                                    nodes.Add(tempAssign);
+                                    if (dataType == DataType.Void)
+                                    {
+                                        dataType = Check((AstNode)tempAssign.GetChild(1), context);
+                                        var.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.TYPE, dataTypeToStr(dataType))));
+                                    }
                                 }
-                                /*if (temp.Token.Type == MathExprLexer.ASSIGN)
-                                {
-                                    Ident ident = context.InThisContext(temp.GetChild(0).Text);
-                                    if (ident != null)
-                                        throw new ApplicationException(string.Format("Identifier {0} already exists", temp.GetChild(0).Text));
-                                    AstNode var = new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.VAR, "VAR"));
-                                    var.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.IDENT, dataTypeToStr(dataType))));
-                                    var.GetChild(0).AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.IDENT, temp.GetChild(0).Text)));
-                                    nodes.Add(var);
-                                    nodes.Add(temp);
-                                }
-                                else
-                                {
-                                    Ident ident = context.InThisContext(temp.Text);
-                                    if (ident != null)
-                                        throw new ApplicationException(string.Format("Identifier {0} already exists", temp.Text));
-                                    AstNode var = new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.VAR, "VAR"));
-                                    var.AddChild(new AstNode(new Antlr.Runtime.CommonToken(MathExprLexer.IDENT, dataTypeToStr(dataType))));
-                                    var.GetChild(0).AddChild(temp);
-                                    nodes.Add(var);
-                                }*/
-
                             }
-                            string name = nodes[i].GetChild(0).Text;
-                            context[name] = new Ident(name, context.ParentContext == null ? IdentType.GlobalVar : IdentType.LocalVar, dataType, nodes[i]);
+                            
+                            string name = nodes[i+i].GetChild(0).Text;
+                            context[name] = new Ident(name, context.ParentContext == null ? IdentType.GlobalVar : IdentType.LocalVar, dataType, nodes[i+i]);
  
                         }
+
                         Antlr.Runtime.Tree.CommonTree tree = new Antlr.Runtime.Tree.CommonTree();
                         foreach (AstNode n in nodes)
                             tree.AddChild(n);
@@ -229,7 +218,6 @@ namespace MathExpr
                         return DataType.Void;
                     }
                 case MathExprLexer.VARS: return DataType.Void;
-                case MathExprLexer.ASSIGN: return DataType.Void;
                 /*case MathExprLexer.FUNCTION:
                 {
                     DataType dataType = strToDataType(node.GetChild(0).Text);
@@ -303,7 +291,7 @@ namespace MathExpr
                         }
                     }
 
-                /*case MathExprLexer.NUMBER:
+                case MathExprLexer.NUMBER:
                 {
                     node.DataType = node.Text.Contains(".") ? DataType.Double : DataType.Int;
                     return node.DataType;
@@ -323,7 +311,13 @@ namespace MathExpr
                         throw new ApplicationException(string.Format("Unknown identifier {0}", node.GetChild(0).Text));
                     if (ident.IdentType == IdentType.Function)
                         throw new ApplicationException(string.Format("Assign to function {0}", node.GetChild(0).Text));
-                    DataType rightDataType = Check((AstNode) node.GetChild(1), context);
+
+
+                    DataType rightDataType = Check((AstNode)node.GetChild(1), context);
+                    if (ident.DataType == DataType.Void)
+                        return rightDataType;
+                    //if(ident.DataType == DataType.Void)
+
                     if (ident.DataType != rightDataType)
                     {
                         if (ident.DataType == DataType.Double && rightDataType == DataType.Int)
@@ -334,7 +328,7 @@ namespace MathExpr
                     return DataType.Void;
                 }
 
-                case MathExprLexer.RETURN:
+                /*case MathExprLexer.RETURN:
                 {
                     if (context.Function == null)
                         throw new ApplicationException(string.Format("Return not in function in line {0}", node.Line));
@@ -348,7 +342,7 @@ namespace MathExpr
                             throw new ApplicationException(string.Format("Return incopotible types {0} {1}", dataTypeToStr(context.Function.DataType), dataTypeToStr(returnDataType)));
                     }
                     return DataType.Void;
-                }
+                }*/
 
                 case MathExprLexer.ADD:
                 case MathExprLexer.SUB:
@@ -356,8 +350,8 @@ namespace MathExpr
                 case MathExprLexer.DIV:
                 case MathExprLexer.GE:
                 case MathExprLexer.LE:
-                case MathExprLexer.NEQUALS:
-                case MathExprLexer.EQUALS:
+                //case MathExprLexer.NEQUALS:
+                //case MathExprLexer.EQUALS:
                 case MathExprLexer.GT:
                 case MathExprLexer.LT:
                 {
@@ -395,7 +389,7 @@ namespace MathExpr
                     return node.DataType;
                 }
 
-                case MathExprLexer.NOT:
+                /*case MathExprLexer.NOT:
                 {
                     DataType dataType = Check((AstNode) node.GetChild(0), context);
                     if (dataType != DataType.Bool)

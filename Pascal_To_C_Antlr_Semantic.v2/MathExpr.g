@@ -48,6 +48,8 @@ tokens {
   ARRAY;
   CASEPARAM;
   VARS;
+  TRUE    = 'true'        ;
+  FALSE   = 'false'       ;
 }
 
 
@@ -78,7 +80,7 @@ NUMBER: ('0'..'9')+ ('.' ('0'..'9')+)?
 ;
 STRINGVAL: ('"')  ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )* ('"');
 
-BOOLVALUE: 'true' | 'false';
+//BOOLVALUE: ;
 
 IDENT:  ( 'a'..'z' | 'A'..'Z' | '_' )
         ( 'a'..'z' | 'A'..'Z' | '_' | '0'..'9' )*
@@ -112,7 +114,7 @@ LT: '<';
 
 type: INT | STRING | DOUBLE | FLOAT | BOOL | ('[' type ']') -> ^(ARRAY type);
 
-value: NUMBER |  STRINGVAL | BOOLVALUE;
+value: NUMBER | TRUE | FALSE  | STRINGVAL;
 
 returnValue: term | value | IDENT;
 
@@ -177,7 +179,7 @@ expr:
 | IF^ term expr (ELSE! expr)?
 | WHILE^ term  expr
 | FOR^ (VAR!? IDENT ASSIGN! term ';'!) compare ';'! ( groupExpr ';'!) expr
-| LET^ IDENT (':'! type)? (ASSIGN! returnValue)?
+| LET idar (':' type)? (ASSIGN returnValue)? (',' idar (':' type)? (ASSIGN returnValue )?)* -> ^(LET ^(idar ^(TYPE type?) ^(ASSIGN returnValue)? )*)
 | VAR idar (':' type)? (ASSIGN ( returnValue | arrayValue))? (',' idar (':' type)? (ASSIGN ( returnValue | arrayValue))?)* -> ^(VAR ^(idar ^(TYPE type?) ^(ASSIGN returnValue)?  ^(ARRAY arrayValue)?)*)
 | FOR^ VAR!? IDENT IN! term '...'! term expr
 | PRINT '('! STRINGVAL ')'!

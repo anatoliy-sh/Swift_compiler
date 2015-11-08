@@ -1,5 +1,12 @@
-var h:Int = 45,h1:Int = 45,h2:Int = 45; 
+/*var h:Double = 5.5;
 
-var h3:Int;
+h=5.4/4
+
+var h = 44; 
+let l = 44; */
+
+var b:Boolean = true;
+
+
 
 
