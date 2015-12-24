@@ -1,0 +1,160 @@
+.assembly extern mscorlib
+{
+    .ver 4:0:0:0
+    .publickeytoken = (B7 7A 5C 56 19 34 E0 89)
+}
+.assembly program
+{
+.custom instance void [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+.custom instance void [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78 63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )
+.hash algorithm 0x00008004
+.ver 0:0:0:0
+}
+.class public auto ansi beforefieldinit Program extends [mscorlib]System.Object
+{
+  .method public static void Main() cil managed
+  {
+    .entrypoint
+    .locals init (
+      [0] int32[] array1,
+      [1] int32 i,
+      [2] int32 j,
+      [3] int32 tmp,
+      [4] int32 tmp1
+    )
+    ldc.i4.s 10
+    newarr [mscorlib]System.Int32
+    stloc.s 0
+    ldc.i4.s 9
+    stloc.s 1
+    ldc.i4.s 0
+    stloc.s 2
+  L_0001:
+    ldloc.s 1
+    ldc.i4.s 0
+    cgt
+    brfalse.s L_0002
+    ldloc.s 0
+    ldloc.s 1
+    ldc.i4.s 10
+    ldloc.s 1
+    sub
+    stelem.i4
+    ldloc.s 1
+    ldc.i4.1 
+    sub
+    stloc.s 1
+    br.s L_0001
+  L_0002:
+    ldc.i4.s 0
+    stloc.s 1
+    ldstr "Input"
+    call void [mscorlib]System.Console::WriteLine(string)
+    nop
+  L_0003:
+    ldloc.s 1
+    ldc.i4.s 9
+    clt
+    brfalse.s L_0004
+    ldloc.s 0
+    ldloc.s 1
+    ldelem.i4
+    call string [mscorlib]System.Convert::ToString(int32)
+    call void [mscorlib]System.Console::WriteLine(string)
+    nop
+    ldloc.s 1
+    ldc.i4.1 
+    add
+    stloc.s 1
+    br.s L_0003
+  L_0004:
+    ldc.i4.s 0
+    stloc.s 1
+    ldc.i4.s 0
+    stloc.s 2
+    ldc.i4.s 0
+    stloc.s 3
+    ldc.i4.s 0
+    stloc.s 4
+  L_0005:
+    ldloc.s 1
+    ldc.i4.s 9
+    clt
+    brfalse.s L_0006
+    ldloc.s 1
+    ldc.i4.s 1
+    add
+    stloc.s 2
+  L_0007:
+    ldloc.s 2
+    ldc.i4.s 9
+    clt
+    brfalse.s L_0008
+    ldloc.s 0
+    ldloc.s 1
+    ldelem.i4
+    stloc.s 3
+    ldloc.s 0
+    ldloc.s 2
+    ldelem.i4
+    stloc.s 4
+    ldloc.s 4
+    ldloc.s 3
+    clt
+    brfalse.s L_0009
+    ldloc.s 0
+    ldloc.s 1
+    ldloc.s 4
+    stelem.i4
+    ldloc.s 0
+    ldloc.s 2
+    ldloc.s 3
+    stelem.i4
+    br.s L_000A
+  L_0009:
+  L_000A:
+    ldloc.s 2
+    ldc.i4.1 
+    add
+    stloc.s 2
+    br.s L_0007
+  L_0008:
+    ldloc.s 1
+    ldc.i4.1 
+    add
+    stloc.s 1
+    br.s L_0005
+  L_0006:
+    ldstr "Result"
+    call void [mscorlib]System.Console::WriteLine(string)
+    nop
+    ldc.i4.s 0
+    stloc.s 1
+  L_000B:
+    ldloc.s 1
+    ldc.i4.s 9
+    clt
+    brfalse.s L_000C
+    ldloc.s 0
+    ldloc.s 1
+    ldelem.i4
+    call string [mscorlib]System.Convert::ToString(int32)
+    call void [mscorlib]System.Console::WriteLine(string)
+    nop
+    ldloc.s 1
+    ldc.i4.1 
+    add
+    stloc.s 1
+    br.s L_000B
+  L_000C:
+    ret
+  }
+  .method public hidebysig specialname rtspecialname instance void 
+          .ctor() cil managed
+  {
+    .maxstack  8
+    ldarg.0
+    call instance void [mscorlib]System.Object::.ctor()
+    ret
+  } 
+}

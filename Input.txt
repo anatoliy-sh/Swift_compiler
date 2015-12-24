@@ -1,0 +1,233 @@
+
+//тест
+
+//var array1:[Int](count: 3)
+
+
+/*repeate{
+print(k);
+}while(k>0)*/
+
+//числа фибоначчи
+/*
+var x = 0
+var y = 1
+var sum = 0
+
+while(sum<89){
+sum = x + y
+x = y
+y = sum
+print(sum)
+}
+*/
+
+//сортировка
+/*
+var array1:[Int](count: 10)
+var i = 9
+var j = 0
+
+
+while(i>0){
+array1[i] = 10 - i
+i--
+}
+
+i = 0
+
+print("Input");
+while(i<9){
+print(array1[i])
+i++
+}
+
+i = 0
+j = 0
+var tmp = 0
+var tmp1 = 0
+
+while(i<9){
+j = i + 1
+  while(j<9){
+    tmp = array1[i]
+	tmp1 = array1[j]
+    if(tmp1 < tmp){
+	  array1[i] = tmp1
+	  array1[j] = tmp
+	}
+	j++
+  }
+i++
+}
+
+print("Result");
+
+i = 0
+while(i<9){
+print(array1[i])
+i++
+}
+*/
+
+
+
+
+
+
+
+//факториал
+/*
+func fact(ind:Int) -> Int
+{
+  var tmp = ind
+
+  if(tmp == 2)
+     return 2*1
+
+  tmp = tmp * fact(tmp-1)
+  return tmp
+
+}
+
+var f = fact(4)
+
+print(f)
+*/
+
+//функции
+/*
+var jj = 0;
+var jj1 = 0;
+
+func printt(g:Int,j:Int) -> Int
+{
+  var i = 0
+  var i1 = 0
+  return 1+1
+}
+
+jj = printt(99,99)
+print(jj)
+
+var jj2 = 0;
+*/
+/*
+for var t = 0; t<4; t++
+{
+print(t);
+}
+*/
+
+//операции
+/*var j = 6;
+var f = 4;
+
+var i:Boolean
+i = j <= f*/
+
+
+
+/*repeate{
+}while(j>0)
+
+if(j>0){
+j++
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+for var t = 0; t<4; t++
+{
+j++;
+}
+*/
+
+//массивы
+/*var str2:[Int]
+var str:[[Int]]
+var str1:[[Int]]
+var s = str[1][1];
+
+print(s)*/
+
+/*var h:Int = str*/
+
+/*print("www")
+var g = [[1,2,4],[1,2,3]]
+var h=1, g=1;
+*/
+
+
+
+/*func printt(g:Int,j:Double) -> [[Int]]
+{
+  return [[1,2,4],[1,2,3]]
+}
+
+var u = printt(4,3)*/
+
+/*for var t = 1; t<4; t++
+{
+var i=true
+}
+var u = 1;
+
+switch u
+{
+  case 1,2,3: u++
+  case 6: u--
+}
+
+*/
+
+//конверт
+/*
+var h:Double = 5.5;
+
+h=5.4/4
+
+var h1 = 44; 
+let l = 44; 
+var j:String = "eee";
+*/
+
+/*var b:Boolean = true;
+
+b = true && false
+var g:Int = 0
+var h:Double = 8
+func printt(g:Int, j:Double) -> Int
+{
+  return 4
+}
+
+printt(g,h)
+var h = true
+h = h ==true
+
+while(h){
+}
+if(h == true){
+}*/
+
+
+
+
+

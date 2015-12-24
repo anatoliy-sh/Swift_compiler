@@ -1,0 +1,105 @@
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\obj\Debug\MathExpr.exe
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\obj\Debug\MathExpr.pdb
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\bin\Debug\MathExpr.exe
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\bin\Debug\MathExpr.pdb
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\bin\Debug\Antlr3.Runtime.dll
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\bin\Debug\Antlr3.Runtime.xml
+C:\Documents and Settings\solomatin\projects\MathExprExtTree_Antlr\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\solomatin\1\MathExprExtTree_Antlr\obj\Debug\MathExpr.exe
+C:\Users\solomatin\1\MathExprExtTree_Antlr\obj\Debug\MathExpr.pdb
+C:\Users\solomatin\1\MathExprExtTree_Antlr\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\solomatin\1\MathExprExtTree_Antlr\bin\Debug\MathExpr.exe
+C:\Users\solomatin\1\MathExprExtTree_Antlr\bin\Debug\MathExpr.pdb
+C:\Users\solomatin\1\MathExprExtTree_Antlr\bin\Debug\Antlr3.Runtime.dll
+C:\Users\solomatin\1\MathExprExtTree_Antlr\bin\Debug\Antlr3.Runtime.xml
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\bin\Debug\MathExpr.exe.config
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\obj\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\obj\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\bin\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\bin\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\bin\Debug\Antlr3.Runtime.dll
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\bin\Debug\Antlr3.Runtime.xml
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+C:\Users\asus\Desktop\Pascal_Antlr\bin\Debug\MathExpr.exe.config
+C:\Users\asus\Desktop\Pascal_Antlr\obj\Debug\MathExpr.exe
+C:\Users\asus\Desktop\Pascal_Antlr\obj\Debug\MathExpr.pdb
+C:\Users\asus\Desktop\Pascal_Antlr\bin\Debug\MathExpr.exe
+C:\Users\asus\Desktop\Pascal_Antlr\bin\Debug\MathExpr.pdb
+C:\Users\asus\Desktop\Pascal_Antlr\bin\Debug\Antlr3.Runtime.dll
+C:\Users\asus\Desktop\Pascal_Antlr\bin\Debug\Antlr3.Runtime.xml
+C:\Users\asus\Desktop\Pascal_Antlr\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\bin\Debug\MathExpr.exe.config
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\obj\Debug\MathExpr.exe
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\obj\Debug\MathExpr.pdb
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\bin\Debug\MathExpr.exe
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\bin\Debug\MathExpr.pdb
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\bin\Debug\Antlr3.Runtime.dll
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\bin\Debug\Antlr3.Runtime.xml
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_Antlr_Semantic\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\bin\Debug\MathExpr.exe.config
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\obj\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\obj\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\bin\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\bin\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\bin\Debug\Antlr3.Runtime.dll
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\bin\Debug\Antlr3.Runtime.xml
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\Pascal_Antlr_Semantic\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\bin\Debug\MathExpr.exe.config
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\obj\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\obj\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\bin\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\bin\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\bin\Debug\Antlr3.Runtime.dll
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\bin\Debug\Antlr3.Runtime.xml
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\ebala\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\bin\Debug\MathExpr.exe.config
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\obj\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\obj\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\bin\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\bin\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\bin\Debug\Antlr3.Runtime.dll
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\bin\Debug\Antlr3.Runtime.xml
+C:\Users\mikhail\Desktop\compilator\Pascal_Antlr_Semantic-2014-10-07\proj\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.exe.config
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.exe
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.pdb
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.exe
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.pdb
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\bin\Debug\Antlr3.Runtime.dll
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\bin\Debug\Antlr3.Runtime.xml
+L:\Лекции\3 Курс\Теория компиляторов\Samples\Pascal_To_C_Antlr_Semantic\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.exe.config
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.exe
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.pdb
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\bin\Debug\Antlr3.Runtime.dll
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\bin\Debug\Antlr3.Runtime.xml
+C:\Users\mikhail\Desktop\Pascal_To_C_Antlr_Semantic\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.exe.config
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.exe
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\obj\Debug\MathExpr.pdb
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.exe
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\bin\Debug\MathExpr.pdb
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\bin\Debug\Antlr3.Runtime.dll
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\bin\Debug\Antlr3.Runtime.xml
+\\CSFS\home$\solomatin\Profile\My Documents\Downloads\Pascal_To_C_Antlr_Semantic_NEW\Pascal_To_C_Antlr_Semantic\obj\Debug\ResolveAssemblyReference.cache
+D:\3 Курс\Лабы\Компиляторы\tasks\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.exe.config
+D:\3 Курс\Лабы\Компиляторы\tasks\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.exe
+D:\3 Курс\Лабы\Компиляторы\tasks\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.pdb
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.exe.config
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.exe
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.pdb
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.exe
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.pdb
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\Antlr3.Runtime.xml
+C:\Users\Анатолий\Desktop\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.exe.config
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.exe
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\MathExpr.pdb
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\Antlr3.Runtime.dll
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\bin\Debug\Antlr3.Runtime.xml
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.exe
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.pdb
+H:\Education\Git\Swift_compiler\Pascal_To_C_Antlr_Semantic.v2\obj\Debug\MathExpr.csprojResolveAssemblyReference.cache
